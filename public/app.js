@@ -10,7 +10,7 @@ class App extends Component {
     this.state ={
       Lat:'',
       Long:'',
-      Temp:'Loading',
+      Temp:'Loading'
     }
     this.onPass = this.onPass.bind(this)
   };
@@ -18,11 +18,12 @@ class App extends Component {
   onPass(Lat,Long) {
     var that = this;
 
-    OpenWeatherAPI.getTemp(Lat,Long).then(function (temp) {
+    OpenWeatherAPI.getTemp(Lat,Long).then(function (data) {
       that.setState({
         Lat: Lat,
         Long: Long,
-        Temp: temp
+        Temp: data.main.temp,
+        Name: data.name
       });
     },
     function (errorMessage) {
@@ -34,7 +35,7 @@ class App extends Component {
     return(
       <div>
         <LatLong onPass = {this.onPass} />
-        <DisplayTemp Temp = {this.state.Temp} Lat = {this.state.Lat} Long = {this.state.Long}/>
+        <DisplayTemp Temp = {this.state.Temp} Name = {this.state.Name} Lat = {this.state.Lat} Long = {this.state.Long}/>
       </div>
     );
   }
