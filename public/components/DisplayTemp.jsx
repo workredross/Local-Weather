@@ -3,7 +3,7 @@ require('style!css!DemoStyle');
 class DisplayTemp extends Component{
 
   render(){
-    var {Temp, Name, Lat, Long} = this.props;
+    var {Temp, Lat, Long} = this.props;
     if(Temp=='Loading'){
       return <div className='loading'>Loading Your Local Weather...</div>
     }
@@ -12,7 +12,7 @@ class DisplayTemp extends Component{
       var Long = Math.round(Long)
       return(
         <div className='display-weather'>
-          It is {Temp} &#8451; at {Name}, Latitude: {Lat} and Longitude: {Long}
+          It is {Temp} &#8451; at Location, Latitude: {Lat} and Longitude: {Long}
         </div>
       )
     }

@@ -18,13 +18,11 @@ class App extends Component {
   onPass(Lat,Long) {
     var that = this;
 
-    OpenWeatherAPI.getTemp(Lat,Long).then(function (data) {
-      console.log(data);
+    OpenWeatherAPI.getTemp(Lat,Long).then(function (temp) {
       that.setState({
         Lat: Lat,
         Long: Long,
-        Temp: data.main.temp,
-        Name: data.name
+        Temp: temp
       });
     },
     function (errorMessage) {
@@ -36,7 +34,7 @@ class App extends Component {
     return(
       <div>
         <LatLong onPass = {this.onPass} />
-        <DisplayTemp Temp = {this.state.Temp} Name = {this.state.Name} Lat = {this.state.Lat} Long = {this.state.Long}/>
+        <DisplayTemp Temp = {this.state.Temp} Lat = {this.state.Lat} Long = {this.state.Long}/>
       </div>
     );
   }
