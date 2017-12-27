@@ -1,0 +1,14 @@
+.loading{
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40vh;   
+  color: black;
+  font-size: 3vmax;
+}
+.display-weather{
+  text-align: center;
+  vertical-align: middle;
+  line-height: 40vh; 
+  color: black;  
+  font-size: 2vmax;
+}
